@@ -5,6 +5,10 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameSorterConsoleApp", "NameSorterConsoleApp\NameSorterConsoleApp.csproj", "{7B2CC8CD-1264-490A-A077-7D54041A94D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameSorterService", "NameSorterService\NameSorterService.csproj", "{8B183F7B-E473-4416-BA23-9CFE167B3517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameSorterTests", "NameSorterTests\NameSorterTests.csproj", "{DE4BB3C9-6AB8-4567-AA17-FABD87452DCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7B2CC8CD-1264-490A-A077-7D54041A94D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B2CC8CD-1264-490A-A077-7D54041A94D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B2CC8CD-1264-490A-A077-7D54041A94D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B183F7B-E473-4416-BA23-9CFE167B3517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B183F7B-E473-4416-BA23-9CFE167B3517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B183F7B-E473-4416-BA23-9CFE167B3517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B183F7B-E473-4416-BA23-9CFE167B3517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4BB3C9-6AB8-4567-AA17-FABD87452DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4BB3C9-6AB8-4567-AA17-FABD87452DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4BB3C9-6AB8-4567-AA17-FABD87452DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4BB3C9-6AB8-4567-AA17-FABD87452DCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
