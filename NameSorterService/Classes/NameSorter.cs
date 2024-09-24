@@ -32,6 +32,9 @@ namespace NameSorterService.Classes
             foreach (string name in namesList) {
                var splitName = name.Split(" ");
 
+                //In spec stated you should only be able to have 3 given names
+                if (splitName.Length >= 5) { continue;}
+
                 string lastName = splitName.Last();      
                 
                 string givenNames = string.Join(" ", splitName.Take(splitName.Length - 1));
