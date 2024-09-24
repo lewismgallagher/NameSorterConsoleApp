@@ -17,9 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="sorted-names-list.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="unsorted-names-list.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,10 +1,5 @@
 ﻿using NameSorterService.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace NameSorterService.Classes
 {
@@ -14,16 +9,18 @@ namespace NameSorterService.Classes
         {
             try
             {
-                if (File.Exists(fileName) == false)
+                if (File.Exists(fileName))
+                {
+                    return File.ReadAllText(fileName);
+                }
+                else
                 {
                     throw new FileNotFoundException("Error, File Not Found, Please check the file path and your file / folder permissions.");
                 }
-                return File.ReadAllText(fileName);
             }
             catch (Exception ex)
             {
-                // would have middleware to catch unhandled exceptions and log them
-                Console.WriteLine(ex.Message);
+                ExceptionLogger.LogException(ex);
                 throw;
             }
         }
@@ -32,18 +29,23 @@ namespace NameSorterService.Classes
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(fileName))
-                { throw new ArgumentNullException("Error, Filepath cannot be null"); }
-
-                File.WriteAllText(fileName, text);
+                if (string.IsNullOrWhiteSpace(fileName) == false)
+                {
+                    File.WriteAllText(fileName, text);
+                }
+                else
+                {
+                    throw new ArgumentNullException("Error, Filepath cannot be null");
+                }
             }
             catch (Exception ex)
             {
-                // would have middleware to catch unhandled exceptions and log them
-                Console.WriteLine(ex.Message);
+                ExceptionLogger.LogException(ex);
                 throw;
             }
         }
+
+
 
     }
 }

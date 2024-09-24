@@ -13,8 +13,6 @@ IHost host = Host.CreateDefaultBuilder().ConfigureServices(services =>
 
 }).Build();
 
-
-
 var app = host.Services.GetRequiredService<IApplication>();
 
 app.StartSortNamesProcess();

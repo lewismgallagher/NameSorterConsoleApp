@@ -42,7 +42,21 @@ namespace NameSorterTests
             Assert.True(sortedNames.Last().LastName == "Nelson");
         }
 
-        // Spec didn't detail this scenario
+        [Fact]
+        public void SortSimiliarNamesTest()
+        {
+            string names = "Ashlin Kaylag Nelson\r\nAshlin Kaylas Nelson\r\nAshlin Kaylaz Nelson";
+
+            List<FullName> fullNames = new List<FullName>();
+
+            fullNames = _sut.SplitNames(names);
+
+            var sortedNames = _sut.SortNames(fullNames);
+
+            Assert.True(sortedNames.First().GivenNames == "Ashlin Kaylag");
+            Assert.True(sortedNames.Last().GivenNames == "Ashlin Kaylaz");
+        }
+
         [Fact]
         public void SortNamesWithMissingGivenNamesTest()
         {
@@ -52,10 +66,7 @@ namespace NameSorterTests
 
             fullNames = _sut.SplitNames(names);
 
-            var sortedNames = _sut.SortNames(fullNames);
-
-            Assert.True(sortedNames.First().LastName == "Lara");
-            Assert.True(sortedNames.Last().LastName == "Nelson");
+            Assert.Throws<ArgumentNullException>(() => _sut.SortNames(fullNames));
         }
 
         [Fact]
@@ -76,24 +87,19 @@ namespace NameSorterTests
             Assert.Contains(fullNames.Select(y => y.GivenNames), x => x == "Pearl Kelley");
         }
 
-
-        // Spec didn't detail this scenario
         [Fact]
-        public void SplitNamesWithMissingGivenNamesTest()
+        public void SplitNamesWithOnlyOneNameTest()
         {
             string names = "Nelson\r\nMolina\r\nLara";
 
             List<FullName> fullNames = new List<FullName>();
 
             fullNames = _sut.SplitNames(names);
-            Assert.True(fullNames.All(x => x.GivenNames == ""));
-            Assert.Contains(fullNames.Select(y => y.LastName), x => x == "Nelson");
-            Assert.Contains(fullNames.Select(y => y.LastName), x => x == "Molina");
-            Assert.Contains(fullNames.Select(y => y.LastName), x => x == "Lara");
+            Assert.True(fullNames.Count == 0);
         }
 
         [Fact]
-        public void SplitNamesWithMoreThan3GivenNamesTest()
+        public void SplitNamesWithMoreThanThreeGivenNamesTest()
         {
             string names = "Ashlin Kaylan Wendy Smith Nelson\r\nKamren Tyreek Josephine Zephyr Abigail Molina\r\nPearl Kelley Tilly Maeva Lara";
 
